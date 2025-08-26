@@ -1,0 +1,119 @@
+/* Color scheme from work item */
+:root {
+  --primary: #2563eb;
+  --secondary: #64748b;
+  --accent: #f59e42;
+
+  --bg: #ffffff;
+  --bg-muted: #f8fafc;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --bg-muted: #0f172a;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: #1f2937;
+  }
+}
+
+.tf-app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 56px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.tf-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.tf-header__logo {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.tf-header__user {
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.tf-sidebar {
+  grid-area: sidebar;
+  border-right: 1px solid var(--border);
+  background: var(--bg-muted);
+  padding: 16px 12px;
+}
+
+.tf-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tf-nav__item {
+  display: block;
+  padding: 10px 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tf-nav__item:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--text);
+}
+
+.tf-nav__item.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.tf-main {
+  grid-area: main;
+  padding: 16px;
+}
+
+.tf-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.tf-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+
+.tf-btn:hover { filter: brightness(0.98); }
+.tf-btn:active { transform: translateY(1px); }
+
+.tf-btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
